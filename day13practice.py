@@ -1,0 +1,13 @@
+import sqlite3
+conn=sqlite3.connect('practice.db')
+cursor=conn.cursor()
+cursor.execute("select * from students order by age")
+print(cursor.fetchall())
+cursor.execute("select * from students order by marks desc ")
+print(cursor.fetchall())
+cursor.execute("select branch,count(*) from students group by branch")
+print(cursor.fetchall())
+cursor.execute("select branch, avg(marks) from students group by branch")
+print(cursor.fetchall())
+cursor.execute("select branch, max(marks) from students group by branch")
+print(cursor.fetchall())
